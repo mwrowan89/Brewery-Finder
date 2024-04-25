@@ -5,15 +5,20 @@ import java.util.List;
 import java.util.Objects;
 
 import com.techelevator.exception.DaoException;
+import com.techelevator.model.BreweryInfo;
+import com.techelevator.model.FavoriteBrewery;
 import com.techelevator.model.RegisterUserDto;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.SQLErrorCodes;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.techelevator.model.User;
+
+import javax.print.DocFlavor;
 
 @Component
 public class JdbcUserDao implements UserDao {
@@ -86,6 +91,110 @@ public class JdbcUserDao implements UserDao {
             throw new DaoException("Data integrity violation", e);
         }
         return newUser;
+    }
+    @Override
+    public List<Integer> getFavoriteBreweries(int id) {
+        List<Integer> favoriteBreweries = new ArrayList<>();
+        String sql = "SELECT brewery_id FROM favorite_breweries WHERE user_id = ?";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+            while (results.next()) {
+                favoriteBreweries.add(results.getInt("brewery_id"));
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+        return favoriteBreweries;
+    }
+
+    @Override
+    public void addFavoriteBrewery(FavoriteBrewery favoriteBrewery) {
+        String sql = "INSERT INTO favorite_breweries (user_id, brewery_id) VALUES (?, ?)";
+        try {
+            jdbcTemplate.update(sql, favoriteBrewery.userId, favoriteBrewery.breweryId);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+    } 
+
+    @Override
+    public void removeFavoriteBrewery(FavoriteBrewery favoriteBrewery) {
+        String sql = "DELETE FROM favorite_breweries WHERE user_id = ? AND brewery_id = ?";
+        try {
+            jdbcTemplate.update(sql, favoriteBrewery.userId, favoriteBrewery.breweryId);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+    }
+    @Override
+    public void updateFavBreweryNotes(FavoriteBrewery favoriteBrewery) {
+        String sql = "UPDATE favorite_breweries SET notes = ? WHERE user_id = ? AND brewery_id = ?";
+        try {
+            jdbcTemplate.update(sql, favoriteBrewery.getNotes(), favoriteBrewery.getUserId(), favoriteBrewery.getBreweryId());
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+    }
+
+    @Override
+    public List<FavoriteBrewery> getAllFavBreweries() {
+        List<FavoriteBrewery> notes = new ArrayList<>();
+        String sql = "SELECT * from favorite_breweries";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+            while(results.next()) {
+                notes.add(mapRowToFavBrewery(results));
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+        return notes;
+    }
+    @Override
+    public void deleteUser(int id) {
+        String sql = "DELETE FROM favorite_breweries WHERE user_id = ?; DELETE FROM reviews WHERE user_id = ?; DELETE FROM users WHERE user_id = ?;";
+        try {
+            jdbcTemplate.update(sql, id, id, id);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+
+    }
+
+    private FavoriteBrewery mapRowToFavBrewery(SqlRowSet results) {
+        FavoriteBrewery favoriteBrewery = new FavoriteBrewery();
+        favoriteBrewery.setBreweryId(results.getInt("brewery_id"));
+        favoriteBrewery.setUserId(results.getInt("user_id"));
+        favoriteBrewery.setNotes(results.getString("notes"));
+        return favoriteBrewery;
+    }
+    private BreweryInfo mapRowToBrewery(SqlRowSet results) {
+        BreweryInfo breweryInfo = new BreweryInfo();
+        breweryInfo.setId(results.getInt("brewery_id"));
+        breweryInfo.setName(results.getString("name"));
+        breweryInfo.setPhone(results.getString("phone"));
+        breweryInfo.setAddress(results.getString("address"));
+        breweryInfo.setZipCode(results.getString("zip_code"));
+        breweryInfo.setState(results.getString("state"));
+        breweryInfo.setCity(results.getString("city"));
+        breweryInfo.setHistory(results.getString("history"));
+        breweryInfo.setHours(results.getString("hours"));
+        breweryInfo.setImg(results.getString("image"));
+        breweryInfo.setWebSite(results.getString("website_url"));
+        breweryInfo.setRating(results.getDouble("rating"));
+        return breweryInfo;
     }
 
     private User mapRowToUser(SqlRowSet rs) {

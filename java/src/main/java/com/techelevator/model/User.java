@@ -2,9 +2,7 @@ package com.techelevator.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class User {
 
@@ -15,6 +13,7 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private List<BreweryInfo> favoriteBreweries = new ArrayList<>();
 
    public User() { }
 
@@ -74,6 +73,22 @@ public class User {
       }
    }
 
+   public List<BreweryInfo> getFavoriteBreweries() {
+      return favoriteBreweries;
+   }
+
+   public void setFavoriteBreweries(List<BreweryInfo> favoriteBreweries) {
+      this.favoriteBreweries = favoriteBreweries;
+   }
+
+   public void addFavoriteBrewery(BreweryInfo brewery) {
+      this.favoriteBreweries.add(brewery);
+   }
+
+   public void removeFavoriteBrewery(BreweryInfo brewery) {
+      this.favoriteBreweries.remove(brewery);
+   }
+
    @Override
    public boolean equals(Object o) {
       if (this == o) return true;
@@ -98,6 +113,7 @@ public class User {
               ", username='" + username + '\'' +
               ", activated=" + activated +
               ", authorities=" + authorities +
+              "favoriteBreweries=" + favoriteBreweries +
               '}';
    }
 }

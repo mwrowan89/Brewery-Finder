@@ -7,7 +7,6 @@ import com.techelevator.model.BeerInfo;
 import com.techelevator.model.BeerReview;
 import com.techelevator.model.BreweryInfo;
 import com.techelevator.model.FavoriteBrewery;
-import com.techelevator.services.BreweryService;
 import com.techelevator.dao.UserDao;
 
 import java.util.List;
@@ -20,14 +19,12 @@ import org.springframework.web.bind.annotation.*;
 public class BreweryController {
 
     private BreweryInfoDao breweryInfoDao;
-    private BreweryService breweryService;
     private BeerInfoDao beerInfoDao;
     private UserDao userDao;
     private BeerReviewDao beerReviewDao;
 
-    public BreweryController(BreweryInfoDao breweryInfoDao, BreweryService breweryService, UserDao userDao, BeerInfoDao beerInfoDao, BeerReviewDao beerReviewDao){
+    public BreweryController(BreweryInfoDao breweryInfoDao, UserDao userDao, BeerInfoDao beerInfoDao, BeerReviewDao beerReviewDao){
         this.breweryInfoDao = breweryInfoDao;
-        this.breweryService = breweryService;
         this.userDao = userDao;
         this.beerInfoDao = beerInfoDao;
         this.beerReviewDao = beerReviewDao;
