@@ -1,11 +1,19 @@
-import { createRouter as createRouter, createWebHistory } from 'vue-router'
-import { useStore } from 'vuex'
+import { createRouter as createRouter, createWebHistory } from "vue-router";
+import { useStore } from "vuex";
 
 // Import components
-import HomeView from '../views/HomeView.vue';
-import LoginView from '../views/LoginView.vue';
-import LogoutView from '../views/LogoutView.vue';
-import RegisterView from '../views/RegisterView.vue';
+import HomeView from "../views/HomeView.vue";
+import LoginView from "../views/LoginView.vue";
+import LogoutView from "../views/LogoutView.vue";
+import RegisterView from "../views/RegisterView.vue";
+import BreweryDetailsView from "../views/BreweryDetailsView.vue";
+import ListOfBeersView from "../views/ListOfBeersView.vue";
+import UserProfileView from "../views/UserProfileView.vue";
+import BreweriesView from "../views/BreweriesView.vue";
+import EditRemoveBeerView from "../views/EditRemoveBeerView.vue";
+import EditBreweryView from "../views/EditBreweryView.vue";
+import BeerInfoView from "../views/BeerInfoView.vue";
+import UserListView from "../views/UserListView.vue";
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -17,56 +25,101 @@ import RegisterView from '../views/RegisterView.vue';
  */
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: "/",
+    name: "home",
     component: HomeView,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: false,
+    },
   },
   {
     path: "/login",
     name: "login",
     component: LoginView,
     meta: {
-      requiresAuth: false
-    }
+      requiresAuth: false,
+    },
   },
   {
     path: "/logout",
     name: "logout",
     component: LogoutView,
     meta: {
-      requiresAuth: false
-    }
+      requiresAuth: false,
+    },
   },
   {
     path: "/register",
     name: "register",
     component: RegisterView,
     meta: {
-      requiresAuth: false
-    }
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/brewery/:id",
+    name: "brewery_details",
+    component: BreweryDetailsView,
+  },
+  {
+    path: "/beers",
+    name: "beers",
+    component: ListOfBeersView,
+  },
+  {
+    path: "/users/:id",
+    name: "user",
+    component: UserProfileView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/breweries",
+    name: "breweries",
+    component: BreweriesView,
+  },
+
+  // admin use only
+
+  {
+    path: "/editBeer/:id",
+    name: "editBeer",
+    component: EditRemoveBeerView
+  },
+  {
+    path: "/editBrewery/:id",
+    name: "editBrewery",
+    component: EditBreweryView
+  },
+  {
+    path: "/beerInfo/:id",
+    name: "beerInfo",
+    component: BeerInfoView
+  },
+  {
+    path: "/admin/userList",
+    name: "userList",
+    component: UserListView
   }
 ];
 
 // Create the router
 const router = createRouter({
   history: createWebHistory(),
-  routes: routes
+  routes: routes,
 });
 
 router.beforeEach((to) => {
-
   // Get the Vuex store
   const store = useStore();
 
   // Determine if the route requires Authentication
-  const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
+  const requiresAuth = to.matched.some((x) => x.meta.requiresAuth);
 
   // If it does and they are not logged in, send the user to "/login"
-  if (requiresAuth && store.state.token === '') {
-    return {name: "login"};
+  if (requiresAuth && store.state.token === "") {
+    return { name: "login" };
   }
   // Otherwise, do nothing and they'll go to their next destination
 });
