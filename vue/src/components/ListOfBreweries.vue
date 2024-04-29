@@ -255,6 +255,9 @@
     margin-top: -25px;
     margin-right: -20px;
   }
+  h2 {
+  margin-top: 70px;
+}
   
   @media screen and (max-width: 1200px) {
     .brewery {
