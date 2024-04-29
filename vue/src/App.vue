@@ -1,6 +1,7 @@
 <template>
+  <body>
   <div id="brewery-app">
-    <div id="nav" v-if="showNav"><br>
+    <div id="nav" :class="{'hidden': !showNav}"><br>
       <img src="./assets/aleAtlasLogoSmall.png"/>
       <h3>Ale Atlas</h3>
       <div id="nav-text">
@@ -21,8 +22,9 @@
     </div>
     <router-view />
   </div>
+</body>
 
-  <footer>
+  <footer id="footer">
   <p>&nbsp;© 2024 Ale Atlas</p>
 </footer>
 </template>
@@ -33,11 +35,22 @@ export default {
   data() {
     return {
       showNav: false,
+      lastScrollTop: 0,
+      threshold: 200,
     };
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.positionFooter();
+
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
   },
   watch: {
     $route() {
       this.toggleNav();
+      this.positionFooter();
     }
   },
   created() {
@@ -50,6 +63,32 @@ export default {
       } else {
         this.showNav = true;
       }
+    },
+    handleScroll() {
+      var st = document.documentElement.scrollTop;
+      if (st > this.lastScrollTop) {
+        if(st > this.threshold){
+          this.showNav = false;
+        }
+      } else {
+        this.showNav = true;
+      }
+
+      this.lastScrollTop = st <= 0 ? 0 : st;
+    },
+    positionFooter() {
+      var footer = document.getElementById('footer');
+      var bodyHeight = document.body.offsetHeight;
+      var windowHeight = window.innerHeight;
+
+      if (bodyHeight < windowHeight) {
+        footer.style.position = 'fixed';
+        footer.style.bottom = '0';
+        footer.style.left = '0';
+        footer.style.width = '100%';
+      } else {
+        footer.style.position = 'static';
+      }
     }
   }
 
@@ -61,6 +100,11 @@ export default {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding: 0;
   margin: 0;
+  
+}
+.hidden {
+  transform: translateY(-100%);
+  transition: top 0.3s ease;
 }
 @font-face {
   font-family: 'monthoers';
@@ -79,6 +123,7 @@ body {
   background-attachment: fixed;
   white-space: nowrap;
   background-size: cover;
+  display: flex;
 }
 #nav {
   display: flex;
@@ -90,6 +135,7 @@ body {
   height: 10%;
   align-items: center;
   color: white;
+  transition: top 0.3s ease;
 }
 #nav #nav-text a{
   color: white;
@@ -149,5 +195,19 @@ footer {
 }
 footer p {
   margin-right: 20px;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+header {
+  min-height: 50px;
+  background: lightcyan;
+}
+
+footer {
+  min-height: 50px;
+  background: PapayaWhip;
 }
 </style>
