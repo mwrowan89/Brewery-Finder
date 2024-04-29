@@ -14,6 +14,8 @@ import EditRemoveBeerView from "../views/EditRemoveBeerView.vue";
 import EditBreweryView from "../views/EditBreweryView.vue";
 import BeerInfoView from "../views/BeerInfoView.vue";
 import UserListView from "../views/UserListView.vue";
+import HomePageView from "../views/HomePageView.vue";
+import { compile } from "vue";
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -28,6 +30,14 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/home",
+    name: "homeView",
+    component: HomePageView,
     meta: {
       requiresAuth: false,
     },

@@ -4,9 +4,11 @@
       <img src="./assets/aleAtlasLogoSmall.png"/>
       <h3>Ale Atlas</h3>
       <div id="nav-text">
-        <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-        <router-link v-bind:to="{ name: 'breweries' }">Brewery List</router-link>&nbsp;|&nbsp;
-        <router-link v-bind:to="{ name: 'beers' }">Beer List</router-link>&nbsp;|&nbsp;
+        <ul>
+          <li><router-link v-bind:to="{ name: 'homeView' }">Home</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+          <li><router-link v-bind:to="{ name: 'breweries' }">Brewery List</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+          <li><router-link v-bind:to="{ name: 'beers' }">Beer List</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        </ul>
       </div>
       <div id="login_logout">
         <p> </p>
@@ -55,13 +57,13 @@ export default {
 
 <style>
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding: 0;
   margin: 0;
 }
 body {
-  background-color: rgba(245, 235, 215, 0.75);
-  background-image: url(https://i.pinimg.com/originals/12/23/99/122399ae99e3350302245e9ebb1c78bd.jpg);
+  background-color: rgba(214, 191, 147, 0.75);
+  /* background-image: url(https://i.pinimg.com/originals/12/23/99/122399ae99e3350302245e9ebb1c78bd.jpg); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   white-space: nowrap;
@@ -69,24 +71,37 @@ body {
 }
 #nav {
   display: flex;
-  background-color: #643211;
+  background-color: black;
   position: fixed;
   white-space: nowrap;
   top: 0;
   width: 100vw;
-  height: 60px;
+  height: 10%;
   align-items: center;
   color: white;
 }
-#nav #nav-text {
+#nav #nav-text a{
   color: white;
-  padding: 20px;
   opacity: 100%;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+
 }
-#nav #nav-text a {
+#nav #nav-text ul{
+  display: flex;
+  flex-wrap: nowrap;
   color: white;
-  padding: 20px;
   opacity: 100%;
+  text-decoration: none;
+  list-style: none;
+  margin-left: 62vw;
+  margin-right: 1.2vw;
+}
+#nav #nav-text li{
+  text-decoration: none;
+  float: left;
+  font-size: larger;
+
 }
 #nav img {
   height: 50px;
@@ -100,6 +115,8 @@ body {
 #login_logout a {
   color: white;
   padding: 10px;
+  font-size: 20px;
+
 }
 footer {
   display: flex;
@@ -113,5 +130,6 @@ footer {
   font-size: 12px;
   opacity: 100%;
   position: fixed;
+  font-size: 15px;
 }
 </style>
