@@ -53,10 +53,11 @@
 }
 .description {
     display: flex;
+    text-align: center;
     word-wrap: break-word;
     white-space: wrap;
     border: 2px solid white;
-    margin: 16vw;
+    margin: 17vw;
     padding: 20px;
     
 }

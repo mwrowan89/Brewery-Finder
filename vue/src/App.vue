@@ -73,7 +73,6 @@ export default {
       } else {
         this.showNav = true;
       }
-
       this.lastScrollTop = st <= 0 ? 0 : st;
     },
     positionFooter() {
@@ -104,7 +103,6 @@ export default {
 }
 .hidden {
   transform: translateY(-100%);
-  transition: top 0.3s ease;
 }
 @font-face {
   font-family: 'monthoers';
@@ -118,7 +116,6 @@ h3 {
 }
 body {
   background-color: rgba(214, 191, 147, 0.75);
-  /* background-image: url(https://i.pinimg.com/originals/12/23/99/122399ae99e3350302245e9ebb1c78bd.jpg); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   white-space: nowrap;
@@ -135,7 +132,7 @@ body {
   height: 10%;
   align-items: center;
   color: white;
-  transition: top 0.3s ease;
+  transition: transform .3s ease;
 }
 #nav #nav-text a{
   color: white;
@@ -187,7 +184,7 @@ footer {
   color: black;
   bottom: 0;
   width: 100vw;
-  height: 30px;
+  height: 50px;
   align-items: center;
   font-size: 12px;
   opacity: 100%;
@@ -195,19 +192,5 @@ footer {
 }
 footer p {
   margin-right: 20px;
-}
-body {
-  min-height: 100vh;
-  margin: 0;
-}
-
-header {
-  min-height: 50px;
-  background: lightcyan;
-}
-
-footer {
-  min-height: 50px;
-  background: PapayaWhip;
 }
 </style>
