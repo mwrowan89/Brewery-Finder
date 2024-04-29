@@ -4,7 +4,7 @@
       <h1>Welcome to the Ale Atlas</h1>
       <h1>Are you over 21?</h1><br>
       <span>
-    <router-link to="/breweries">Yes</router-link>&nbsp;&nbsp;
+    <router-link to="/home">Yes</router-link>&nbsp;&nbsp;
     <a href="https://www.coca-cola.com/us/en" >No</a></span>
     </div>
     

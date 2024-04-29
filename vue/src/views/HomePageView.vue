@@ -2,7 +2,8 @@
     <div class="top">
         <div class="image"></div>
         <div class="text">
-              <h1>BREWERY FINDER</h1>
+            <h2>Welcome to the </h2>
+              <h1>Ale Atlas</h1>
               <p>Locate a brewery near you by rating or type</p>  
             </div>
     </div>
@@ -10,10 +11,8 @@
 
 <style scoped>
 @font-face {
-  font-family: 'Lobster';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Lobster'), url('http://themes.googleusercontent.com/static/fonts/lobster/v4/NIaFDq6p6eLpSvtV2DTNDQLUuEpTyoUstqEm5AMlJo4.woff') format('woff');
+  font-family: 'monthoers';
+  src: url('Fonts/Monthoers.ttf');
 }
 @font-face {
     font-family: 'hughs';
@@ -32,12 +31,18 @@
     color: rgb(170, 130, 78);
     background-color: rgba(255, 255, 255, 0.671);
     margin-top: -28vw;
-    padding-bottom: 15px;
+    padding: 20px;
+    
 }
 .text h1 {
     font-size: 100px;
-    font-family: 'Lobster';
-    font-weight: 300;
+    font-family: 'monthoers';
+    font-weight: 800;
+    color: rgba(27, 26, 26, 0.829);
+}
+.text h2 {
+    font-family: 'hughs';
+    font-size: 40px;
 }
 .text p {
     font-size: 50px;

@@ -6,6 +6,7 @@
       <div id="nav-text">
         <ul>
           <li><router-link v-bind:to="{ name: 'homeView' }">Home</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+          <li><router-link v-bind:to="{name: 'about' }">About</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
           <li><router-link v-bind:to="{ name: 'breweries' }">Brewery List</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
           <li><router-link v-bind:to="{ name: 'beers' }">Beer List</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
         </ul>
@@ -61,6 +62,16 @@ export default {
   padding: 0;
   margin: 0;
 }
+@font-face {
+  font-family: 'monthoers';
+  src: url('Fonts/Monthoers.ttf');
+}
+h3 {
+  font-family: 'monthoers';
+  font-size: 60px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
 body {
   background-color: rgba(214, 191, 147, 0.75);
   /* background-image: url(https://i.pinimg.com/originals/12/23/99/122399ae99e3350302245e9ebb1c78bd.jpg); */
@@ -94,8 +105,7 @@ body {
   opacity: 100%;
   text-decoration: none;
   list-style: none;
-  margin-left: 62vw;
-  margin-right: 1.2vw;
+  margin-left: 52vw;
 }
 #nav #nav-text li{
   text-decoration: none;
@@ -106,7 +116,7 @@ body {
 #nav img {
   height: 50px;
   top: 0;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 #login_logout {
   margin-left: auto;

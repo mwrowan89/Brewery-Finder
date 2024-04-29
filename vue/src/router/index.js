@@ -15,6 +15,7 @@ import EditBreweryView from "../views/EditBreweryView.vue";
 import BeerInfoView from "../views/BeerInfoView.vue";
 import UserListView from "../views/UserListView.vue";
 import HomePageView from "../views/HomePageView.vue";
+import AboutView from "../views/AboutView.vue";
 import { compile } from "vue";
 
 /**
@@ -41,6 +42,11 @@ const routes = [
     meta: {
       requiresAuth: false,
     },
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: AboutView
   },
   {
     path: "/login",
