@@ -57,9 +57,8 @@
     word-wrap: break-word;
     white-space: wrap;
     border: 2px solid white;
-    margin: 17vw;
+    margin: 17vw 10vw 1.5vw 10vw;
     padding: 20px;
-    
 }
 .description h3 {
     font-size: 30px;
