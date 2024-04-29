@@ -1,5 +1,5 @@
 <template>
-  <div id="capstone-app">
+  <div id="brewery-app">
     <div id="nav" v-if="showNav"><br>
       <img src="./assets/aleAtlasLogoSmall.png"/>
       <h3>Ale Atlas</h3>
@@ -105,7 +105,7 @@ body {
   opacity: 100%;
   text-decoration: none;
   list-style: none;
-  margin-left: 52vw;
+  margin-left: 45vw;
 }
 #nav #nav-text li{
   text-decoration: none;
@@ -114,9 +114,9 @@ body {
 
 }
 #nav img {
-  height: 50px;
+  height: 70px;
   top: 0;
-  padding-left: 20px;
+  padding-left: 50px;
 }
 #login_logout {
   margin-left: auto;
@@ -129,17 +129,25 @@ body {
 
 }
 footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+footer {
   display: flex;
   justify-content: flex-end;
-  color: white;
+  background-color: whitesmoke;
+  color: black;
   bottom: 0;
-  width: 99vw;
+  width: 100vw;
   height: 30px;
   align-items: center;
-  margin-left: -50px;
   font-size: 12px;
   opacity: 100%;
-  position: fixed;
   font-size: 15px;
+}
+footer p {
+  margin-right: 20px;
 }
 </style>
