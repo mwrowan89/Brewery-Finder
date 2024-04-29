@@ -71,7 +71,7 @@ body {
 }
 #nav {
   display: flex;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.878);
   position: fixed;
   white-space: nowrap;
   top: 0;
