@@ -85,11 +85,7 @@
             >
               <p>
                 {{ beer.beerName }} <br />
-                {{ beer.beerType }} <br> ABV:{{
-                  beer.beerAbv
-                }}%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <!-- <input id="favorite-checkbox" type="checkbox" v-if="$store.state.token != ''"/>
-                <label for="favorite-checkbox" v-if="$store.state.token != ''">  Add to Favorites</label> -->
+                {{ beer.beerType }} <br> ABV: {{beer.beerAbv}}%
               </p>
             </router-link>
             <div class="add-review-button" v-if="this.$store.state.token != '' && this.$store.state.user.username !== 'admin'">
@@ -273,7 +269,7 @@
     position: fixed;
     height: 101vh;
     width: 100vw;
-    margin-top: -5.3vw;
+    margin-top: -6vw;
   }
   .beer_list {
     display: flex;
@@ -286,10 +282,16 @@
   }
   .header,
   h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 90px;
     color: white;
-    text-align: start;
-    padding-left: 21vw;
+    background-color: rgba(4, 4, 4, 0.682);
+    border: 2px solid white;
+    margin: 6vw 30vw 0vw 30vw;
+    padding: 20px;
   }
   .beer {
     display: flex;
@@ -327,6 +329,7 @@
   }
   #beer-filter {
     margin-left: 10px;
+    margin-top: 35px;
     width: 12vw;
     height: 3vh;
   }

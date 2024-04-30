@@ -229,8 +229,8 @@
   }
   .brewery .brewer img {
     padding-right: 15px;
-    height: 15vh;
-    width: 7vw;
+    height: 10vh;
+    width: 5vw;
   }
   .brewery .brewer #name-and-place {
     flex-direction: column;
@@ -243,11 +243,12 @@
     font-size: 15pt;
   }
   .brewery .brewer {
-    background-color: rgba(192, 191, 189, 0.575);
-    height: 15vh;
+    background-color: rgba(192, 191, 189, 0.752);
+    height: 10vh;
     padding: 10px;
     margin: 5px;
-    width: 40vw;
+    width: 28vw;
+    
   }
   .brewery .brewer:hover {
     background-color: rgba(192, 191, 189, 0.763);
