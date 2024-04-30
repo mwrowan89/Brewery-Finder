@@ -198,7 +198,7 @@ footer {
 footer {
   display: flex;
   justify-content: flex-end;
-  background-color: rgba(245, 245, 245, 0.26) !important;
+  background-color: rgba(245, 245, 245, 0) !important;
   color: black;
   bottom: 0;
   width: 100vw;
