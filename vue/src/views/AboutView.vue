@@ -1,4 +1,5 @@
 <template>
+<body class="main-about">
   <div class="header">
     <img
       src="https://beerconnoisseur.com/sites/default/files/styles/article_770x366/public/articles/2020/understanding_whiskey_in_barrel-aged_beer/whiskey-fb2.jpg?itok=hRDjPOoB"
@@ -106,10 +107,14 @@
   </div>
   <img src="https://20thcenturyhistorylife.weebly.com/uploads/5/0/8/6/50862903/1549466_orig.jpg">
   </div>
- 
+</body>
 </template>
 
 <style scoped>
+.main-about {
+  height: 101%;
+  background-color: rgba(214, 191, 147, 0.491);
+}
 .info {
   display: flex;
   justify-content: space-around;
@@ -172,9 +177,8 @@
   margin-top: -7vw;
 }
 .header img {
-  height: 90vh;
+  height: 80vh;
   width: 100vw;
-  margin-top: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;

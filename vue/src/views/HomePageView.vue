@@ -11,7 +11,7 @@
       </div>
     </div>
 <!-- popup window -->
-
+<div class="main-home">
   <div class="image"></div>
   <div class="text">
     <h2>Welcome to the</h2>
@@ -23,6 +23,7 @@
 
     Whether you're a seasoned beer enthusiast or just starting your journey into the world of craft brews, our intuitive brewery finder makes it effortless to locate breweries near you or in your desired destination. Explore bustling urban hubs, quaint towns, and scenic locales, all while indulging in the diverse flavors of American craft beer culture.
     </h3>
+  </div>
   </div>
 </template>
 <script>
@@ -64,7 +65,10 @@ export default {
   font-family: "hughs";
   src: url("Fonts/Hughs.woff");
 }
-
+.main-home {
+  height: 100vh;
+  background-color:rgba(214, 191, 147, 0.491);
+}
 
 /* popup */
 #overlay {

@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body id="main-body-app">
     <div id="brewery-app">
       <div id="nav" :class="{ hidden: !showNav }">
         <br />
@@ -58,6 +58,7 @@
   </body>
 
   <footer id="footer">
+    <!-- <img src="https://images.squarespace-cdn.com/content/v1/61f86e8e794a883d2fc6880e/8d56d054-5e4d-4622-8ffa-24537eb62cde/Taps+BW+2.jpg" alt="Taps"> -->
     <p>&nbsp;© 2024 Ale Atlas</p>
   </footer>
 </template>
@@ -81,6 +82,7 @@ export default {
   watch: {
     $route() {
       this.positionFooter();
+      this.positionFooter();
     },
   },
   methods: {
@@ -100,7 +102,7 @@ export default {
       var bodyHeight = document.body.offsetHeight;
       var windowHeight = window.innerHeight;
 
-      if (bodyHeight < windowHeight) {
+      if (bodyHeight <= windowHeight) {
         footer.style.position = "fixed";
         footer.style.bottom = "0";
         footer.style.left = "0";
@@ -133,19 +135,18 @@ h3 {
   padding-left: 10px;
   padding-top: 10px;
 }
-body {
-  background-color: rgba(214, 191, 147, 0.75);
+#main-body-app {
   background-repeat: no-repeat;
   background-attachment: fixed;
   white-space: nowrap;
   background-size: cover;
-  display: flex;
+  display: flex;  
+  width: min-content;
 }
 #nav {
   display: flex;
   background-color: rgba(0, 0, 0, 0.878);
   position: fixed;
-  white-space: nowrap;
   top: 0;
   width: 100vw;
   height: 10%;
@@ -197,16 +198,17 @@ footer {
 footer {
   display: flex;
   justify-content: flex-end;
-  background-color: rgba(245, 245, 245, 0.575);
+  background-color: rgba(245, 245, 245, 0.26) !important;
   color: black;
   bottom: 0;
   width: 100vw;
-  height: 50px;
+  height: 60px;
   align-items: center;
   font-size: 12px;
   opacity: 100%;
   font-size: 15px;
 }
+
 footer p {
   margin-right: 20px;
 }

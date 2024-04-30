@@ -1,10 +1,11 @@
 <template>
+  <div class="brewery-list">
   <img id="background" src="https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_562,q_75,w_1920/v1/clients/johnstoncounty/Hatchet_Brewery_Floor_Web_Header_2e942773-1e28-4fc1-a5c0-ccce98885a27.jpg">
     <div class="header">
-      <br />
       <h2>Discover your favorite brew with The Ale Atlas!</h2>
       <br />
-      <label for="state">Filter by State</label>
+      <div class="filters">
+        <label for="state">Filter by State: </label>
       <input
         type="text"
         id="state"
@@ -13,13 +14,14 @@
         placeholder="Enter state name"
       />
   
-      &nbsp;<label for="rating">Filter by Rating</label>
+      &nbsp;<label for="rating">Filter by Rating: </label>
       <select id="rating" v-model="rating" @change="filterRatings">
         <option value="3">3.0 - 3.5</option>
         <option value="3.5">3.5 - 4.0</option>
         <option value="4">4.0 - 4.5</option>
         <option value="4.5">4.5 - 5.0</option>
       </select>
+      </div>
     </div>
   
     <h1>List of Breweries {{ filteredState }}</h1>
@@ -56,7 +58,7 @@
         </div>
       </li>
     </ul>
-  
+    </div>
   </template>
   
   <script>
@@ -177,20 +179,23 @@
   </script>
   
   <style scoped>
+  .brewery {
+    padding-top: 20px;
+  }
   #background {
     z-index: -1;
     position: fixed;
     height: 100vh;
+    margin-top: -6vw;
   }
   .brewery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     width: 100vw;
     margin-left: auto;
     margin-right: auto;
     list-style-type: none;
-    margin-left: 9vw;
   }
   .header {
     display: flex;
@@ -199,11 +204,17 @@
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    padding-right: 37vw;
+    margin-top: 6vw;
+    border: 2px solid white;
+    width: min-content;
+    height: min-content;
+    padding: 30px;
+    background-color: rgba(4, 4, 4, 0.682);
   }
   h1 {
     color: white;
-    padding-left: 23.5vw;
+    display: flex;
+    justify-content: center;
   }
   .brewery .brewer,
   .brewery .brewer-info {
@@ -213,6 +224,8 @@
   }
   .brewery .brewer-info {
     flex-grow: 5;
+    text-decoration: none;
+
   }
   .brewery .brewer img {
     padding-right: 15px;
@@ -230,19 +243,14 @@
     font-size: 15pt;
   }
   .brewery .brewer {
-    background-color: rgba(167, 136, 97, 0.5);
+    background-color: rgba(192, 191, 189, 0.575);
     height: 15vh;
     padding: 10px;
     margin: 5px;
     width: 40vw;
   }
   .brewery .brewer:hover {
-    background-color: rgba(167, 136, 97, 1);
-  }
-  .brewery .brewer #checkbox {
-    margin-left: 40px;
-    width: 30px;
-    height: 30px;
+    background-color: rgba(192, 191, 189, 0.763);
   }
   .brewery .favorited {
     background-color: rgba(168, 126, 20, 0.5);
@@ -262,9 +270,6 @@
     margin-top: -25px;
     margin-right: -20px;
   }
-  h2 {
-  margin-top: 70px;
-}
   
   @media screen and (max-width: 1200px) {
     .brewery {

@@ -1,4 +1,6 @@
 <template>
+  <body class="main-beers">
+    <img id="background" src="https://images.squarespace-cdn.com/content/v1/61f86e8e794a883d2fc6880e/8d56d054-5e4d-4622-8ffa-24537eb62cde/Taps+BW+2.jpg" alt="taps">
     <div class="header">
       <h2>Find your favorite type of brew</h2>
       <br />
@@ -83,7 +85,7 @@
             >
               <p>
                 {{ beer.beerName }} <br />
-                {{ beer.beerType }}, ABV:{{
+                {{ beer.beerType }} <br> ABV:{{
                   beer.beerAbv
                 }}%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <!-- <input id="favorite-checkbox" type="checkbox" v-if="$store.state.token != ''"/>
@@ -114,6 +116,7 @@
         </li>
       </ul>
     </div>
+    </body>
   </template>
   
   <script>
@@ -262,16 +265,24 @@
   </script>
   
   <style scoped>
+  .main-beers {
+    width: 100vw;
+  }
+  #background {
+    z-index: -1;
+    position: fixed;
+    height: 101vh;
+    width: 100vw;
+    margin-top: -5.3vw;
+  }
   .beer_list {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 30px;
-    margin-right: auto;
+    justify-content: center;
     list-style-type: none;
-    padding-right: 10px;
     height: max-content;
-    width: 60vw;
-    margin-left: 8vw;
+    width: 100vw;
+    
   }
   .header,
   h1 {
@@ -291,7 +302,6 @@
   #beer {
     display: flex;
     flex-wrap: wrap;
-    columns: 2;
     justify-content: flex-start;
     flex-wrap: wrap;
     background-color: rgba(167, 136, 97, 0.5);
