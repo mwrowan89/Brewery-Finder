@@ -152,6 +152,7 @@ export default {
     word-wrap: break-word;
     white-space: wrap;
     border: 2px solid white;
+    border-radius: 4px;
     margin: 17vw 10vw 13vw 10vw;
     padding: 20px;
 }

@@ -1,4 +1,5 @@
 <template>
+  <body>
   <div id="login">
     <form v-on:submit.prevent="login">
       <h1>Please Sign In</h1>
@@ -29,6 +30,7 @@
       </p>
     </form>
   </div>
+</body>
 </template>
 
 <script>
@@ -76,10 +78,17 @@ export default {
 label {
   margin-right: 0.5rem;
 }
+body{
+  height: 100vh;
+  width: 100vw;
+}
 #login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 200px;
   width: 400px;
   height: 400px;
   background-color: rgba(245, 222, 179, 0.5);

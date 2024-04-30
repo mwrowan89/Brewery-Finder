@@ -1,4 +1,5 @@
 <template>
+  <body>
   <div id="register" class="text-center">
     <form v-on:submit.prevent="register">
       <h1>Create Account</h1>
@@ -38,6 +39,7 @@
       </p>
     </form>
   </div>
+  </body>
 </template>
 
 <script>
@@ -97,6 +99,10 @@ export default {
 label {
   margin-right: 0.5rem;
 }
+body{
+  height: 100vh;
+  width: 100vw;
+}
 #register {
   display: flex;
   justify-content: center;
@@ -104,7 +110,7 @@ label {
   margin-left: auto;
   margin-right: auto;
   width: 400px;
-  margin-top: 100px;
+  margin-top: 200px;
   height: 400px;
   background-color: rgba(245, 222, 179, 0.5);
   text-align: center;

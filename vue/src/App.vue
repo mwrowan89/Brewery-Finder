@@ -169,7 +169,7 @@ footer {
 footer {
   display: flex;
   justify-content: flex-end;
-  background-color: whitesmoke;
+  background-color: rgba(245, 245, 245, 0.575);
   color: black;
   bottom: 0;
   width: 100vw;
