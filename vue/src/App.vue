@@ -1,12 +1,12 @@
 <template>
   <body>
   <div id="brewery-app">
-    <div id="nav" :class="{'hidden': !showNav}"><br>
+    <div id="nav" :class="{'hidden': showNav}"><br>
       <img src="./assets/aleAtlasLogoSmall.png"/>
       <h3>Ale Atlas</h3>
       <div id="nav-text">
         <ul>
-          <li><router-link v-bind:to="{ name: 'homeView' }">Home</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+          <li><router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
           <li><router-link v-bind:to="{name: 'about' }">About</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
           <li><router-link v-bind:to="{ name: 'breweries' }">Brewery List</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
           <li><router-link v-bind:to="{ name: 'beers' }">Beer List</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -34,7 +34,6 @@ export default {
   
   data() {
     return {
-      showNav: false,
       lastScrollTop: 0,
       threshold: 200,
     };
@@ -49,21 +48,10 @@ export default {
   },
   watch: {
     $route() {
-      this.toggleNav();
       this.positionFooter();
     }
   },
-  created() {
-    this.toggleNav();
-  },
   methods: {
-    toggleNav() {
-      if (this.$route.path === '/') {
-        this.showNav = false;
-      } else {
-        this.showNav = true;
-      }
-    },
     handleScroll() {
       var st = document.documentElement.scrollTop;
       if (st > this.lastScrollTop) {

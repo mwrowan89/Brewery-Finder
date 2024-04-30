@@ -1,4 +1,17 @@
 <template>
+  <!-- popup window -->
+  <div v-if="showPopup" id="overlay">
+    <video autoplay muted loop id="myVideo">
+      <source src="../assets/Delirium Beer Pour(1080p).mp4" type="video/mp4" />
+      </video>
+      <div id="popup">
+        <p>Are you over 21?</p>
+        <button @click="confirmAge">Yes</button>
+        <button @click="rejectAge">No</button>
+      </div>
+    </div>
+<!-- popup window -->
+
   <div class="image"></div>
   <div class="text">
     <h2>Welcome to the</h2>
@@ -12,6 +25,21 @@
     </h3>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      showPopup: !localStorage.getItem('ageConfirmed')
+    }
+  },
+  methods: {
+    confirmAge() {
+      this.showPopup = false;
+      localStorage.setItem('ageConfirmed', true);
+    }
+  }
+}
+</script>
 
 <style scoped>
 @font-face {
@@ -22,6 +50,59 @@
   font-family: "hughs";
   src: url("Fonts/Hughs.woff");
 }
+
+
+/* popup */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  color: rgb(220, 64, 64);
+  font-size: 24px;
+  text-align: center;
+  padding-top: 200px;
+  overflow: hidden;
+}
+#myVideo {
+  position: absolute;
+  top: 27vw;
+  width: fit-content;
+  height: fit-content;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border-radius: 25px;
+}
+#popup {
+  position: relative;
+  z-index: 1; 
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  margin: auto;
+}
+#popup button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#popup button.yes {
+  background-color: green;
+  color: white;
+}
+
+#popup button.no {
+  background-color: red;
+  color: white;
+}
+/* popup */
 
 .top {
   background-color: white;
