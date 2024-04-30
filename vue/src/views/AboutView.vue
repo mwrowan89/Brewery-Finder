@@ -146,6 +146,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: -30vw;
 }
 #craft {
   display: flex;
@@ -161,11 +162,14 @@
 }
 .craftBeer {
   display: flex;
+  align-items: center;
+  margin-bottom: 5vw;
 }
 .craftBeer img {
   height: 30vh;
   width: 30vw;
   margin-right: 15vw;
+  margin-top: -7vw;
 }
 .header img {
   height: 90vh;
