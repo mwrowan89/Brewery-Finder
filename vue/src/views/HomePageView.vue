@@ -66,7 +66,7 @@ export default {
   src: url("Fonts/Hughs.woff");
 }
 .main-home {
-  height: 100vh;
+  height: 105%;
   background-color:rgba(214, 191, 147, 0.491);
 }
 
@@ -79,7 +79,7 @@ export default {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  color: rgb(220, 64, 64);
+  color: white;
   font-size: 24px;
   text-align: center;
   padding-top: 200px;
@@ -122,10 +122,6 @@ export default {
 }
 /* popup */
 
-.top {
-  background-color: white;
-}
-
 .text {
   display: flex;
   flex-direction: column;
@@ -133,8 +129,8 @@ export default {
   align-items: center;
   color: rgb(170, 130, 78);
   background-color: rgba(255, 255, 255, 0.671);
-  margin-top: -28vw;
-  padding: 20px;
+  margin-top: -32vw;
+  padding: 30px;
 }
 .text h1 {
   font-size: 100px;
@@ -157,7 +153,7 @@ export default {
     white-space: wrap;
     border: 2px solid white;
     border-radius: 4px;
-    margin: 17vw 10vw 13vw 10vw;
+    margin: 19vw 10vw 2vw 10vw;
     padding: 20px;
 }
 .description h3 {
@@ -165,10 +161,10 @@ export default {
     font-weight: 500;
 }
 .image {
-  height: 60vh;
+  height: 80vh;
   width: 100vw;
   background-image: url("https://cdn.brewersassociation.org/wp-content/uploads/2020/06/small-brewery-demographics2.jpg");
   background-position: center;
-  margin-top: 5%;
+  background-size: cover;
 }
 </style>
