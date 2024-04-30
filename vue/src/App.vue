@@ -1,61 +1,93 @@
 <template>
   <body>
-  <div id="brewery-app">
-    <div id="nav" :class="{'hidden': showNav}"><br>
-      <img src="./assets/aleAtlasLogoSmall.png"/>
-      <h3>Ale Atlas</h3>
-      <div id="nav-text">
-        <ul>
-          <li><router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-          <li><router-link v-bind:to="{name: 'about' }">About</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-          <li><router-link v-bind:to="{ name: 'breweries' }">Brewery List</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-          <li><router-link v-bind:to="{ name: 'beers' }">Beer List</router-link>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-        </ul>
+    <div id="brewery-app">
+      <div id="nav" :class="{ hidden: !showNav }">
+        <br />
+        <img src="./assets/aleAtlasLogoSmall.png" />
+        <h3>Ale Atlas</h3>
+        <div id="nav-text">
+          <ul>
+            <li>
+              <router-link v-bind:to="{ name: 'home' }">Home</router-link
+              >&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+            <li>
+              <router-link v-bind:to="{ name: 'about' }">About</router-link
+              >&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+            <li>
+              <router-link v-bind:to="{ name: 'breweries' }"
+                >Brewery List</router-link
+              >&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+            <li>
+              <router-link v-bind:to="{ name: 'beers' }">Beer List</router-link
+              >&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+          </ul>
+        </div>
+        <div id="login_logout">
+          <p></p>
+          <router-link
+            v-bind:to="{ name: 'userList' }"
+            v-if="$store.state.user.username === 'admin'"
+            >User List</router-link
+          >
+          <RouterLink
+            v-bind:to="{
+              name: 'user',
+              params: { id: this.$store.state.user.id },
+            }"
+            v-if="$store.state.token != ''"
+            >My Profile</RouterLink
+          >
+          <router-link
+            v-bind:to="{ name: 'logout' }"
+            v-if="$store.state.token != ''"
+            >Logout</router-link
+          >
+          <router-link
+            v-bind:to="{ name: 'login' }"
+            v-if="$store.state.token == ''"
+            >Login / Sign Up</router-link
+          >
+        </div>
       </div>
-      <div id="login_logout">
-        <p> </p>
-        <router-link v-bind:to="{ name: 'userList' }" v-if="$store.state.user.username === 'admin'">User List</router-link>
-        <RouterLink v-bind:to="{ name: 'user', params: {id: this.$store.state.user.id} }" v-if="$store.state.token != ''">My Profile</RouterLink>
-        <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-        <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login / Sign Up</router-link>
-      </div>
+      <router-view />
     </div>
-    <router-view />
-  </div>
-</body>
+  </body>
 
   <footer id="footer">
-  <p>&nbsp;© 2024 Ale Atlas</p>
-</footer>
+    <p>&nbsp;© 2024 Ale Atlas</p>
+  </footer>
 </template>
 
 <script>
 export default {
-  
   data() {
     return {
+      showNav: true,
       lastScrollTop: 0,
       threshold: 200,
     };
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
     this.positionFooter();
-
   },
   beforeUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   },
   watch: {
     $route() {
       this.positionFooter();
-    }
+    },
   },
   methods: {
     handleScroll() {
       var st = document.documentElement.scrollTop;
       if (st > this.lastScrollTop) {
-        if(st > this.threshold){
+        if (st > this.threshold) {
           this.showNav = false;
         }
       } else {
@@ -64,40 +96,39 @@ export default {
       this.lastScrollTop = st <= 0 ? 0 : st;
     },
     positionFooter() {
-      var footer = document.getElementById('footer');
+      var footer = document.getElementById("footer");
       var bodyHeight = document.body.offsetHeight;
       var windowHeight = window.innerHeight;
 
       if (bodyHeight < windowHeight) {
-        footer.style.position = 'fixed';
-        footer.style.bottom = '0';
-        footer.style.left = '0';
-        footer.style.width = '100%';
+        footer.style.position = "fixed";
+        footer.style.bottom = "0";
+        footer.style.left = "0";
+        footer.style.width = "100%";
       } else {
-        footer.style.position = 'static';
+        footer.style.position = "static";
       }
-    }
-  }
-
+    },
+  },
 };
 </script>
 
 <style>
 * {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   padding: 0;
   margin: 0;
-  
 }
 .hidden {
   transform: translateY(-100%);
 }
 @font-face {
-  font-family: 'monthoers';
-  src: url('Fonts/Monthoers.ttf');
+  font-family: "monthoers";
+  src: url("Fonts/Monthoers.ttf");
 }
 h3 {
-  font-family: 'monthoers';
+  font-family: "monthoers";
   font-size: 60px;
   padding-left: 10px;
   padding-top: 10px;
@@ -120,17 +151,16 @@ body {
   height: 10%;
   align-items: center;
   color: white;
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
   z-index: 1;
 }
-#nav #nav-text a{
+#nav #nav-text a {
   color: white;
   opacity: 100%;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 20px;
-
 }
-#nav #nav-text ul{
+#nav #nav-text ul {
   display: flex;
   flex-wrap: nowrap;
   color: white;
@@ -139,11 +169,10 @@ body {
   list-style: none;
   margin-left: 45vw;
 }
-#nav #nav-text li{
+#nav #nav-text li {
   text-decoration: none;
   float: left;
   font-size: larger;
-
 }
 #nav img {
   height: 70px;
@@ -158,7 +187,6 @@ body {
   color: white;
   padding: 10px;
   font-size: 20px;
-
 }
 footer {
   position: absolute;

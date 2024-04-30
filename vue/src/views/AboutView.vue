@@ -89,7 +89,8 @@
   <div class="craft">
     <h3>Craft Beer Renaissance</h3>
   </div>
-  <div id="craft">
+  <div class="craftBeer">
+     <div id="craft">
     <h4>Craft Beer Movement</h4>
     <br />
     <p>
@@ -102,8 +103,10 @@
       world. Craft brewers focus on creativity, quality, and community
       engagement, challenging the dominance of mass-produced beer brands.
     </p>
-    <img src="/vue/src/assets/Want beer.jpeg">
   </div>
+  <img src="https://20thcenturyhistorylife.weebly.com/uploads/5/0/8/6/50862903/1549466_orig.jpg">
+  </div>
+ 
 </template>
 
 <style scoped>
@@ -153,8 +156,16 @@
   height: max-content;
   border: 2px solid white;
   border-radius: 4px;
-  margin: 1vw 15vw 5vw 15vw;
+  margin: 1vw 5vw 5vw 10vw;
   padding: 20px;
+}
+.craftBeer {
+  display: flex;
+}
+.craftBeer img {
+  height: 30vh;
+  width: 30vw;
+  margin-right: 15vw;
 }
 .header img {
   height: 90vh;
