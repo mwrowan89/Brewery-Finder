@@ -2,7 +2,7 @@
   <div class="brewery-list">
   <img id="background" src="https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_562,q_75,w_1920/v1/clients/johnstoncounty/Hatchet_Brewery_Floor_Web_Header_2e942773-1e28-4fc1-a5c0-ccce98885a27.jpg">
     <div class="header">
-      <h2>Discover your favorite brew with The Ale Atlas!</h2>
+      <h3>Discover your favorite brewery with The Ale Atlas!</h3>
       <br />
       <div class="filters">
         <label for="state">Filter by State: </label>
@@ -243,7 +243,7 @@
     font-size: 15pt;
   }
   .brewery .brewer {
-    background-color: rgba(192, 191, 189, 0.752);
+    background-color: rgba(192, 191, 189, 0.84);
     height: 10vh;
     padding: 10px;
     margin: 5px;

@@ -306,7 +306,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     flex-wrap: wrap;
-    background-color: rgba(167, 136, 97, 0.5);
+    background-color: rgba(192, 191, 189, 0.84);
     height: 6vh;
     padding: 10px;
     margin: 5px;

@@ -1,4 +1,6 @@
 <template>
+  <img id="background" src="https://frankenmuthbrewery.com/wp-content/uploads/2020/03/BrewHouse-DT-2-27-20.jpg" alt="">
+  <div class="main">
     <button
       v-if="this.$store.state.user.username == 'admin'"
       id="edit-brewery-button"
@@ -201,6 +203,7 @@
         </li>
       </ul>
     </div>
+    </div>
   </template>
   
   <script>
@@ -331,6 +334,19 @@
   </script>
   
   <style scoped>
+  #background {
+    z-index: -1;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+  }
+  .main {
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   #add-beer-form {
     display: flex;
     flex-direction: column;
@@ -354,7 +370,7 @@
     color: white;
     margin: 100px;
     padding: 40px;
-    background-color: rgba(167, 136, 97, 0.5);
+    background-color: rgba(167, 136, 97, 0.679);
   }
   
   .history-box {
@@ -373,7 +389,6 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 50vw;
     font-size: 20px;
     white-space: wrap;
   }
@@ -415,7 +430,6 @@
   }
   
   #beer_list {
-    margin-top: 90px;
     color: white;
     text-align: start;
     padding-left: 28.5vw;
@@ -423,7 +437,7 @@
   
   .beer p {
     display: flex;
-    background-color: rgba(167, 136, 97, 0.5);
+    background-color: rgba(167, 136, 97, 0.802);
     height: 15vh;
     padding: 10px;
     margin: 5px;
@@ -437,7 +451,7 @@
     columns: 2;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: rgba(167, 136, 97, 0.5);
+    background-color: rgba(167, 136, 97, 0.679);
     height: 6vh;
     padding: 10px;
     margin: 5px;

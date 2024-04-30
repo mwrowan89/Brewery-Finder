@@ -112,7 +112,7 @@
 
 <style scoped>
 .main-about {
-  height: 101%;
+  height: 200vh;
   background-color: rgba(214, 191, 147, 0.491);
 }
 .info {
@@ -177,8 +177,9 @@
   margin-top: -7vw;
 }
 .header img {
-  height: 80vh;
+  height: 90vh;
   width: 100vw;
+  margin-top: -8vw;
   display: flex;
   justify-content: center;
   align-items: center;
