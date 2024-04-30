@@ -15,6 +15,7 @@ import BeerInfoView from "../views/BeerInfoView.vue";
 import UserListView from "../views/UserListView.vue";
 import HomePageView from "../views/HomePageView.vue";
 import AboutView from "../views/AboutView.vue";
+import MapView from "../views/MapView.vue";
 import { compile } from "vue";
 
 /**
@@ -87,6 +88,11 @@ const routes = [
     name: "breweries",
     component: BreweriesView,
   },
+  {
+    path: "/maps",
+    name: "maps",
+    component: MapView
+  },
 
   // admin use only
 
@@ -109,7 +115,7 @@ const routes = [
     path: "/admin/userList",
     name: "userList",
     component: UserListView
-  }
+  },
 ];
 
 // Create the router
