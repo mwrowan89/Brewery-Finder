@@ -35,8 +35,22 @@ export default {
   methods: {
     confirmAge() {
       this.showPopup = false;
-      localStorage.setItem('ageConfirmed', true);
+      localStorage.setItem('ageConfirmed', true)
+    },
+    rejectAge() {
+      window.location.href= 'https://www.google.com/search?q=grow+up&sca_esv=37d8bbf9c1461c28&sca_upv=1&rlz=1C5CHFA_enUS1107US1107&biw=1800&bih=932&tbm=vid&sxsrf=ACQVn0_LcXvBRvmYFA6PMtP5nXs21E4N-Q%3A1714497063938&ei=JyYxZsH5OL6ekPIP_4y-yAQ&ved=0ahUKEwiBqdujt-qFAxU-D0QIHX-GD0kQ4dUDCA0&uact=5&oq=grow+up&gs_lp=Eg1nd3Mtd2l6LXZpZGVvIgdncm93IHVwMgoQABiABBhDGIoFMgUQABiABDINEAAYgAQYsQMYgwEYCjIFEAAYgAQyDRAAGIAEGLEDGIMBGAoyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEj2DVC9A1j-C3ABeACQAQCYAT-gAegBqgEBNLgBA8gBAPgBAZgCBaAC9wHCAgYQABgFGB7CAggQABgFGAoYHsICBhAAGBYYHsICCBAAGBYYChgewgIOEAAYgAQYsQMYgwEYigWYAwCIBgGSBwE1oAfdFQ&sclient=gws-wiz-video#fpstate=ive&vld=cid:aa146b69,vid:m11TVYK0usM,st:0'
+    },
+    // reset local storage when user leaves page
+    clearLocalStorage() {
+      localStorage.removeItem('ageConfirmed')
     }
+  },
+  mounted() {
+    window.addEventListener('beforeunload', this.clearLocalStorage)
+  },
+  beforeUnmount() {
+    window.removeEventListener('beforeunload', this.clearLocalStorage)
+
   }
 }
 </script>
@@ -138,7 +152,7 @@ export default {
     word-wrap: break-word;
     white-space: wrap;
     border: 2px solid white;
-    margin: 17vw 10vw 1.5vw 10vw;
+    margin: 17vw 10vw 13vw 10vw;
     padding: 20px;
 }
 .description h3 {

@@ -121,6 +121,7 @@ body {
   align-items: center;
   color: white;
   transition: transform .3s ease;
+  z-index: 1;
 }
 #nav #nav-text a{
   color: white;
