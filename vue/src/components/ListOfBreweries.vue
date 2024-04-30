@@ -1,4 +1,5 @@
 <template>
+  <img id="background" src="https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_562,q_75,w_1920/v1/clients/johnstoncounty/Hatchet_Brewery_Floor_Web_Header_2e942773-1e28-4fc1-a5c0-ccce98885a27.jpg">
     <div class="header">
       <br />
       <h2>Discover your favorite brew with The Ale Atlas!</h2>
@@ -55,6 +56,7 @@
         </div>
       </li>
     </ul>
+  
   </template>
   
   <script>
@@ -175,11 +177,16 @@
   </script>
   
   <style scoped>
+  #background {
+    z-index: -1;
+    position: fixed;
+    height: 100vh;
+  }
   .brewery {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width: 90vw;
+    width: 100vw;
     margin-left: auto;
     margin-right: auto;
     list-style-type: none;
@@ -227,7 +234,7 @@
     height: 15vh;
     padding: 10px;
     margin: 5px;
-    width: 45vw;
+    width: 40vw;
   }
   .brewery .brewer:hover {
     background-color: rgba(167, 136, 97, 1);

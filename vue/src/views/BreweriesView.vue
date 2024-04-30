@@ -1,5 +1,5 @@
 <template>
-    <ListOfBreweries />
+  <ListOfBreweries />
 </template>
 
 
