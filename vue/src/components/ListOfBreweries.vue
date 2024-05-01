@@ -68,15 +68,26 @@
       <button
         id="previousPage"
         @click="showPreviousPage"
-        v-bind:class="{ 'disabled' : previousButtonDisable }"
+        v-bind:class="{ disabled: previousButtonDisable }"
       >
         Previous Page
       </button>
-    
-        <button class="page-numbers" v-for="pageNumber in totalPages" :key="pageNumber" v-bind:class="{'current-page' : isCurrentPage(pageNumber) }" @click="goToPage(pageNumber)">{{ pageNumber }}</button>
-      
-      
-      <button id="nextPage" @click="showNextPage" v-bind:class="{ 'disabled' : nextButtonDisable }">
+
+      <button
+        class="page-numbers"
+        v-for="pageNumber in totalPages"
+        :key="pageNumber"
+        v-bind:class="{ 'current-page': isCurrentPage(pageNumber) }"
+        @click="goToPage(pageNumber)"
+      >
+        {{ pageNumber }}
+      </button>
+
+      <button
+        id="nextPage"
+        @click="showNextPage"
+        v-bind:class="{ disabled: nextButtonDisable }"
+      >
         Next Page
       </button>
     </div>
@@ -190,7 +201,7 @@ export default {
     },
     goToPage(pageNumber) {
       this.currentPage = pageNumber;
-    }
+    },
   },
   computed: {
     totalBreweries() {
@@ -211,8 +222,8 @@ export default {
       return this.currentPage <= 1;
     },
     nextButtonDisable() {
-      return this.totalPages == 1 || this.totalPages == this.currentPage; 
-    }
+      return this.totalPages == 1 || this.totalPages == this.currentPage;
+    },
   },
 };
 </script>
@@ -324,7 +335,7 @@ h1 {
 }
 .disabled {
   color: #ccc;
-  pointer-events: none; 
+  pointer-events: none;
 }
 .page-numbers {
   display: flex;
@@ -337,7 +348,11 @@ h1 {
   padding: 10px;
   margin-top: 1vw;
   border-radius: 8px;
-} 
+}
+.current-page {
+  background-color: #e0e0e0b6;
+  font-weight: bold;
+}
 button {
   width: min-content;
   height: min-content;
