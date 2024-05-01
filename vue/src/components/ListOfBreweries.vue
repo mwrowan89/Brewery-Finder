@@ -27,7 +27,7 @@
     <h1>List of Breweries {{ filteredState }}</h1>
   
     <ul class="brewery">
-      <li v-for="brewery in filteredBreweries" :key="brewery.id">
+      <li v-for="(brewery) in displayedBreweries" :key="brewery.id">
         <div class="brewer" v-bind:class="{favorited: brewery.isFavorite}">
           <router-link
             class="brewer-info"
@@ -58,12 +58,13 @@
         </div>
       </li>
     </ul>
+    <button id="nextPage" v-if="showNextButton" @click="showNextPage">Next 25 Breweries</button>
+    <p>{{ totalPages }}</p>
     </div>
   </template>
   
   <script>
   import BreweryService from "../services/BreweryService";
-  import BeerService from "../services/BeerService";
   import FavoriteBreweriesService from "../services/FavoriteBreweriesService";
   
   export default {
@@ -71,30 +72,25 @@
       return {
         breweries: [],
         beers: [],
-        filteredBeers: [],
-        typeFilter: "",
         filteredBreweries: [],
-        stateFilter: " ",
+        stateFilter: "",
         filteredState: "",
         favoriteBrewery: {},
         state: "",
+        breweriesPerPage: 24,
+        currentPage: 1,
+        breweryList: []
       };
     },
     async created() {
       await this.fetchBreweries();
       await this.getFavoriteBreweries();
     },
-  
     methods: {
       async fetchBreweries() {
         const response = await BreweryService.getBreweries();
         this.breweries = response.data;
         this.filteredBreweries = this.breweries;
-      },
-      async fetchBeers() {
-        const response = await BeerService.getBeers();
-        this.beers = response.data;
-        this.filteredBeers = this.beers;
       },
       async getFavoriteBreweries() {
         const response =
@@ -110,16 +106,6 @@
             brewery.isFavorite = false;
           }
         });
-      },
-      filterTypes() {
-        this.filteredBreweries = this.breweries.filter((brewery) => {
-          return brewery.beers.filter((beer) => {
-            return beer.beerType
-              .toLowerCase()
-              .includes(this.typeFilter.toLowerCase());
-          });
-        });
-  
       },
       filterBreweries() {
         this.filteredBreweries = this.breweries.filter((brewery) => {
@@ -174,6 +160,27 @@
           });
         }
       },
+      showNextPage() {
+        this.currentPage++;
+        this.filterBreweries()
+        console.log(this.filteredBreweries)
+      }
+    },
+    computed: {
+      totalBreweries() {
+        return this.filteredBreweries.length;
+      },
+      totalPages() {
+        return Math.ceil(this.totalBreweries / this.breweriesPerPage);
+      },
+      displayedBreweries() {
+        const startIndex = (this.currentPage - 1) * this.breweriesPerPage;
+        const endIndex = startIndex + this.breweriesPerPage;
+        return this.filteredBreweries.slice(startIndex, endIndex);
+      },
+      showNextButton() {
+        return this.currentPage < this.totalPages;
+      }
     },
   };
   </script>
@@ -270,6 +277,14 @@
     scale: 0.5;
     margin-top: -25px;
     margin-right: -20px;
+  }
+  #nextPage{
+    background: rgba(9, 9, 9, 0.776);
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    margin: 4vw;
+    cursor: pointer;
   }
   
   @media screen and (max-width: 1200px) {
