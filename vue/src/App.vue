@@ -58,8 +58,12 @@
   </body>
 
   <footer id="footer">
-    <!-- <img src="https://images.squarespace-cdn.com/content/v1/61f86e8e794a883d2fc6880e/8d56d054-5e4d-4622-8ffa-24537eb62cde/Taps+BW+2.jpg" alt="Taps"> -->
-    <p>&nbsp;© 2024 Ale Atlas</p>
+    <div class="video-container">
+    <video autoplay muted loop id="myVideo">
+      <source src="./assets/Delirium Beer Pour(1080p).mp4" type="video/mp4" />
+      </video>
+      <p>&nbsp;© 2024 Ale Atlas</p>
+    </div>
   </footer>
 </template>
 
@@ -142,6 +146,7 @@ h3 {
   background-size: cover;
   display: flex;  
   width: min-content;
+  height:min-content;
 }
 #nav {
   display: flex;
@@ -189,27 +194,26 @@ h3 {
   padding: 10px;
   font-size: 20px;
 }
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-footer {
-  display: flex;
-  justify-content: flex-end;
-  background-color: rgba(245, 245, 245, 0) !important;
-  color: black;
-  bottom: 0;
+.video-container {
+  display:flex;
+  position: relative;
+  justify-content:flex-end;
+  align-items: flex-end;
   width: 100vw;
   height: 60px;
-  align-items: center;
-  font-size: 12px;
-  opacity: 100%;
-  font-size: 15px;
+  overflow: hidden;
 }
-
-footer p {
-  margin-right: 20px;
+.video-container p {
+  justify-content:center;
+  color: white;
+  margin: 10px;
+}
+#myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  height: auto;
 }
 </style>

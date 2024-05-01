@@ -66,7 +66,7 @@ export default {
   src: url("Fonts/Hughs.woff");
 }
 .main-home {
-  height: 105%;
+  height: 100%;
   background-color:rgba(214, 191, 147, 0.491);
 }
 
