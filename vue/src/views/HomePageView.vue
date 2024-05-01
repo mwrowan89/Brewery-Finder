@@ -5,7 +5,7 @@
       <source src="../assets/Delirium Beer Pour(1080p).mp4" type="video/mp4" />
       </video>
       <div id="popup">
-        <p>Are you over 21?</p>
+        <p>Are you over 21?</p><br>
         <button @click="confirmAge">Yes</button>
         <button @click="rejectAge">No</button>
       </div>
@@ -95,13 +95,12 @@ export default {
   border-radius: 25px;
 }
 #popup {
-  position: relative;
   z-index: 1; 
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 20px;
   border-radius: 10px;
   width: 300px;
-  margin: auto;
+  margin: 10vw 40vw 0vw 40vw;
 }
 #popup button {
   padding: 10px 20px;
