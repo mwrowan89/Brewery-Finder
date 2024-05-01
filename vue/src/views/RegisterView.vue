@@ -1,5 +1,8 @@
 <template>
   <body>
+    <div id="background">
+      <img src="../assets/beer-bubbles.jpeg">
+    </div>
   <div id="register" class="text-center">
     <form v-on:submit.prevent="register">
       <h1>Create Account</h1>
@@ -100,7 +103,8 @@ label {
   margin-right: 0.5rem;
 }
 body{
-  height: 100vh;
+  margin-top: 11.1vw;
+  height: 72vh;
   width: 100vw;
 }
 #register {
@@ -109,18 +113,25 @@ body{
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  width: 400px;
-  margin-top: 200px;
-  height: 400px;
-  background-color: rgba(245, 222, 179, 0.5);
+  width: fit-content;
+  height: fit-content;
+  background-color: rgba(245, 222, 179, 0.75);
   text-align: center;
   padding: 10px;
   border-radius: 10px;
 }
 #register h1 {
-  margin-bottom: 80px;
+  margin-bottom: 50px;
+  color: white;
 }
 #register p {
   padding: 20px;
+}
+#background img {
+  margin-top: -11vw;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  position: fixed;
 }
 </style>

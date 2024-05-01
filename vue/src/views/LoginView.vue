@@ -1,9 +1,12 @@
 <template>
   <body>
+    <div id="background">
+      <img src="../assets/beer-bubbles.jpeg">
+    </div>
   <div id="login">
     <form v-on:submit.prevent="login">
-      <h1>Please Sign In</h1>
-      
+      <h1>Please Sign In</h1><br>
+      <img src="../assets/beer sign.png">
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -80,7 +83,7 @@ label {
   margin-right: 0.5rem;
 }
 body{
-  height: 100vh;
+  height:72vh;
   width: 100vw;
 }
 #login {
@@ -90,17 +93,28 @@ body{
   margin-left: auto;
   margin-right: auto;
   margin-top: 200px;
-  width: 400px;
-  height: 400px;
-  background-color: rgba(245, 222, 179, 0.5);
+  width: fit-content;
+  height: fit-content;
+  background-color: rgba(245, 222, 179, 0.7);
   text-align: center;
   padding: 10px;
   border-radius: 10px;
 }
 #login h1 {
-  margin-bottom: 150px;
+  color: white;
 }
 #login p {
   padding: 20px;
+}
+img {
+  height: 60%;
+  width: 60%;
+}
+#background img {
+  margin-top: -11vw;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  position: fixed;
 }
 </style>

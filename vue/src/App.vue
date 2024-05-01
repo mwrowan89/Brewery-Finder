@@ -59,7 +59,7 @@
 
   <footer id="footer">
     <div class="video-container">
-    <video autoplay muted loop id="myVideo">
+    <video autoplay muted loop id="beerVideo">
       <source src="./assets/Delirium Beer Pour(1080p).mp4" type="video/mp4" />
       </video>
       <p>&nbsp;© 2024 Ale Atlas</p>
@@ -208,7 +208,7 @@ h3 {
   color: white;
   margin: 10px;
 }
-#myVideo {
+#beerVideo {
   position: absolute;
   top: 0;
   left: 0;
