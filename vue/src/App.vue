@@ -106,7 +106,7 @@ export default {
       var bodyHeight = document.body.offsetHeight;
       var windowHeight = window.innerHeight;
 
-      if (bodyHeight <= windowHeight) {
+      if (bodyHeight < windowHeight) {
         footer.style.position = "fixed";
         footer.style.bottom = "0";
         footer.style.left = "0";
