@@ -201,7 +201,9 @@ export default {
 }
 
 /* brewery images  */
-#lagunitas {
+#lagunitas, #oberon, #bass, #brooklyn,
+#upperhand, #deschutes, #budah, #guiness,
+#rhinegeist, #bells, #boulevard {
   height: 10%;
   width: 10%;
 }
@@ -216,45 +218,5 @@ export default {
 #stone {
   height: 11%;
   width: 11%;
-}
-#bass {
-  height: 10%;
-  width: 10%;
-}
-#brooklyn {
-  height: 10%;
-  width: 10%;
-}
-#upperhand {
-  height: 10%;
-  width: 10%;
-}
-#deschutes {
-  height: 10%;
-  width: 10%;
-}
-#budah {
-  height: 10%;
-  width: 10%;
-}
-#guiness {
-  height: 10%;
-  width: 10%;
-}
-#rhinegeist {
-  height: 10%;
-  width: 10%;
-}
-#bells {
-  height: 10%;
-  width: 10%;
-}
-#boulevard {
-  height: 10%;
-  width: 10%;
-}
-#oberon {
-  height: 10%;
-  width: 10%;
 }
 </style>
