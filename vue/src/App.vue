@@ -200,7 +200,7 @@ h3 {
   justify-content:flex-end;
   align-items: flex-end;
   width: 100vw;
-  height: 60px;
+  height: 37px;
   overflow: hidden;
 }
 .video-container p {
