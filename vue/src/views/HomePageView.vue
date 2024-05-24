@@ -21,9 +21,10 @@
     </div>
     <div class="description-images">
       <div class="description">
-        <img id="lagunitas" src="https://i.pinimg.com/originals/32/26/90/32269040aa52697d874fcff8f17a041c.png">
-        <img id="sierra" src="../assets/SierraNevada.png">
-        <img id="lakefront" src="../assets/Lakefront.png">
+        <img id="lagunitas" src="https://i.pinimg.com/originals/32/26/90/32269040aa52697d874fcff8f17a041c.png">&nbsp;
+        <img id="sierra" src="../assets/SierraNevada.png">&nbsp;
+        <img id="lakefront" src="../assets/Lakefront.png">&nbsp;
+        <img id="stone" src="../assets/Stone.png">&nbsp;
         <h3 class="description-text">
           Welcome to Explore America's Brews, your ultimate destination for
           discovering breweries and their eclectic offerings spanning the United
@@ -166,7 +167,7 @@ export default {
   word-wrap: break-word;
   white-space: wrap;
   border-radius: 4px;
-  margin: 19vw 20vw 2vw 20vw;
+  margin: 18vw 20vw 2vw 20vw;
   padding: 30px;
 }
 .description h3 {
@@ -195,5 +196,9 @@ export default {
 #lakefront {
   height: 20%;
   width: 20%;
+}
+#stone {
+  height: 11%;
+  width: 11%;
 }
 </style>
