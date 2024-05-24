@@ -25,9 +25,14 @@
         <img id="sierra" src="../assets/SierraNevada.png">&nbsp;
         <img id="lakefront" src="../assets/Lakefront.png">&nbsp;
         <img id="stone" src="../assets/Stone.png">&nbsp;
+        <img id="bass" src="../assets/Bass.png">&nbsp;
+        <img id="brooklyn" src="../assets/Brooklyn.png">&nbsp;
+        <img id="upperhand" src="../assets/Upperhand.png">&nbsp;
+        
+        
         <h3 class="description-text">
-          Welcome to Explore America's Brews, your ultimate destination for
-          discovering breweries and their eclectic offerings spanning the United
+          Welcome to the Ale Atlas, your ultimate destination for
+          discovering breweries and their eclectic offerings across the United
           States! With an expansive database boasting over 2000 beers and
           continually growing, we're your go-to platform for all things craft
           beer. Whether you're a seasoned beer enthusiast or just starting your
@@ -37,6 +42,14 @@
           locales, all while indulging in the diverse flavors of American craft
           beer culture.
         </h3>
+
+        <img id="deschutes" src="../assets/Deschutes.png">&nbsp;
+        <img id="budah" src="../assets/Budah.png">&nbsp;
+        <img id="guiness" src="../assets/Guiness.png">&nbsp;
+        <img id="oberon" src="../assets/Oberon.png">&nbsp;
+        <img id="rhinegeist" src="../assets/Rhinegeist.png">&nbsp;
+        <img id="bells" src="../assets/Bells.png">&nbsp;
+        <img id="boulevard" src="../assets/Boulevard.png">&nbsp;
       </div>
     </div>
   </div>
@@ -160,21 +173,24 @@ export default {
   font-size: 50px;
   font-family: "hughs";
 }
-.description {
-  display: inline-block;
+.description-images {
+  display: flex;
   flex-direction: column;
   text-align: center;
   word-wrap: break-word;
   white-space: wrap;
   border-radius: 4px;
-  margin: 18vw 20vw 2vw 20vw;
+  margin: 17vw 20vw 2vw 20vw;
   padding: 30px;
 }
-.description h3 {
+.description-text {
   border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.403);
   font-size: 30px;
   font-weight: 500;
   padding: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .image {
   height: 80vh;
@@ -200,5 +216,45 @@ export default {
 #stone {
   height: 11%;
   width: 11%;
+}
+#bass {
+  height: 10%;
+  width: 10%;
+}
+#brooklyn {
+  height: 10%;
+  width: 10%;
+}
+#upperhand {
+  height: 10%;
+  width: 10%;
+}
+#deschutes {
+  height: 10%;
+  width: 10%;
+}
+#budah {
+  height: 10%;
+  width: 10%;
+}
+#guiness {
+  height: 10%;
+  width: 10%;
+}
+#rhinegeist {
+  height: 10%;
+  width: 10%;
+}
+#bells {
+  height: 10%;
+  width: 10%;
+}
+#boulevard {
+  height: 10%;
+  width: 10%;
+}
+#oberon {
+  height: 10%;
+  width: 10%;
 }
 </style>
