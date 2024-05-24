@@ -24,7 +24,6 @@
           <option value="Wheat">Wheat</option>
           <option value="Cider">Cider</option>
           <option value="Seltzer">Seltzer</option>
-          <option value="Stout">Stout</option>
         </select>
       </span>
     </div>

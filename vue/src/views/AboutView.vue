@@ -129,6 +129,8 @@
   border-radius: 4px;
   margin: 1vw 2vw 2vw 2vw;
   padding: 20px;
+  background-color: rgba(255, 255, 255, 0.403);
+
 }
 .history {
   display: flex;
@@ -146,6 +148,7 @@
   border-radius: 4px;
   margin: 1vw 2vw 2vw 2vw;
   padding: 20px;
+  background-color: rgba(255, 255, 255, 0.403);
 }
 .craft {
   display: flex;
@@ -164,6 +167,8 @@
   border-radius: 4px;
   margin: 1vw 5vw 5vw 10vw;
   padding: 20px;
+  background-color: rgba(255, 255, 255, 0.403);
+
 }
 .craftBeer {
   display: flex;
