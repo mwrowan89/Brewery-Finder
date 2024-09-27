@@ -15,3 +15,4 @@ public interface BeerReviewDao {
 
     public void deleteReview(int id);
 }
+

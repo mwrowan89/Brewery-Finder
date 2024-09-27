@@ -7,3 +7,6 @@ createdb -U postgres $DATABASE &&
 psql -U postgres -d $DATABASE -f "$BASEDIR/schema.sql" &&
 psql -U postgres -d $DATABASE -f "$BASEDIR/data.sql" &&
 psql -U postgres -d $DATABASE -f "$BASEDIR/user.sql"
+
+
+#Update command for psgl
