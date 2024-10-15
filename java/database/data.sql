@@ -1,7 +1,7 @@
 
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$10$32TFOjkheLSs1mWtv31VYurpWvZtKXutyWRSxMm9AtZ6QhQgTzUZi','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$10$Ynstz7/mt56UPJKqx2Y.VuTht2IEQwAqee5ue5JVv0JWH/tBBo/te','ROLE_ADMIN');
 
 
 INSERT INTO breweries (name, phone, address, city, state, zip_code, history, hours, image, website_url, rating)
