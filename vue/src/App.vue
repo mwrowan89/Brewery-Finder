@@ -59,8 +59,8 @@
 
   <footer id="footer">
     <div class="video-container">
-    <video autoplay muted loop id="beerVideo">
-      <source src="./assets/Delirium Beer Pour(1080p).mp4" type="video/mp4" />
+      <video autoplay muted loop id="beerVideo">
+        <source src="./assets/Delirium Beer Pour(1080p).mp4" type="video/mp4" />
       </video>
       <p>&nbsp;© 2024 Ale Atlas</p>
     </div>
@@ -144,9 +144,9 @@ h3 {
   background-attachment: fixed;
   white-space: nowrap;
   background-size: cover;
-  display: flex;  
+  display: flex;
   width: min-content;
-  height:min-content;
+  height: min-content;
 }
 #nav {
   display: flex;
@@ -195,16 +195,16 @@ h3 {
   font-size: 20px;
 }
 .video-container {
-  display:flex;
+  display: flex;
   position: relative;
-  justify-content:flex-end;
+  justify-content: flex-end;
   align-items: flex-end;
   width: 100vw;
   height: 37px;
   overflow: hidden;
 }
 .video-container p {
-  justify-content:center;
+  justify-content: center;
   color: white;
   margin: 10px;
 }
